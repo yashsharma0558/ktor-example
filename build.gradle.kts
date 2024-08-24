@@ -37,8 +37,12 @@ dependencies {
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
 
     //MongoDB dependency
-    implementation("org.litote.kmongo:kmongo:4.5.1")
-    implementation("org.litote.kmongo:kmongo-coroutine:4.5.1")
+//    implementation("org.litote.kmongo:kmongo:4.5.1")
+//    implementation("org.litote.kmongo:kmongo-coroutine:4.5.1")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.2")
 
+    implementation("org.mongodb:bson-kotlinx:5.1.2")
+    implementation("org.mongodb:mongodb-driver-kotlin-coroutine:5.1.2")
+
+//    implementation("io.github.cdimascio:dotenv-kotlin:6.4.1")
 }

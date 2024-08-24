@@ -1,11 +1,9 @@
 package com.dev.routes
 
-import com.dev.data.createEmployeeOrUpdateEmployeeForID
-import com.dev.data.deleteEmployeeForID
-import com.dev.data.getEmployeeForID
+import com.dev.db.createEmployeeOrUpdateEmployeeForID
+import com.dev.db.deleteEmployeeForID
+import com.dev.db.getEmployeeForID
 import com.dev.data.model.Employee
-import com.dev.data.requests.DeleteEmployeeRequests
-import com.dev.data.requests.EmployeeRequests
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.request.*
