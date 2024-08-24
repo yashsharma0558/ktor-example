@@ -13,9 +13,10 @@ import io.ktor.server.response.*
 import io.ktor.server.routing.*
 
 fun Route.employeeRoute() {
-    route("/get-employee") {
+    route("/get-employee/{id}") {
         get {
-            val employeeId = call.receive<EmployeeRequests>().id
+            val employeeId = call.parameters["id"].toString()
+//            val employeeId = call.receive<String>()
             val employee = getEmployeeForID(employeeId)
             employee?.let {
                 call.respond(
@@ -51,15 +52,20 @@ fun Route.employeeRoute() {
         }
     }
 
-    route("/delete-employee") {
-        post {
-            val request = try {
-                call.receive<DeleteEmployeeRequests>()
-            } catch (e : ContentTransformationException){
-                call.respond(HttpStatusCode.BadRequest)
-                return@post
+    route("/delete-employee/{id}") {
+        delete {
+            val employeeId = call.parameters["id"].toString()
+            if (employeeId == null) {
+                call.respond(HttpStatusCode.BadRequest, "Missing or malformed ID")
+                return@delete
             }
-            if(deleteEmployeeForID(request.id)){
+//            val request = try {
+//                employeeId = call.parameters["id"]
+//            } catch (e : ContentTransformationException){
+//                call.respond(HttpStatusCode.BadRequest)
+//                return@post
+//            }
+            if(deleteEmployeeForID(employeeId)){
                 call.respond(
                     HttpStatusCode.OK,
                     "Employee deleted successfully"
