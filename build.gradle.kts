@@ -16,6 +16,11 @@ application {
     val isDevelopment: Boolean = project.ext.has("development")
     applicationDefaultJvmArgs = listOf("-Dio.ktor.development=$isDevelopment")
 }
+ktor {
+    fatJar {
+        archiveFileName.set("fat.jar")
+    }
+}
 
 repositories {
     mavenCentral()
