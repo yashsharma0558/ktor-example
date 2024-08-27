@@ -10,7 +10,7 @@ import kotlinx.coroutines.runBlocking
 import org.bson.Document
 
 
-private val uri = "mongodb+srv://yashsharma0558:NiRxjjd2yXEYonq5@cluster0.fqpfwvm.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+private val uri = "mongodb+srv://<userID>:<AtlasDBPassword>@cluster0.fqpfwvm.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 
 private val mongoClient = MongoClient.create(uri)
 private val database = mongoClient.getDatabase("CompanyDatabase")
